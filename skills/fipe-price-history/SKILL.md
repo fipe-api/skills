@@ -24,6 +24,7 @@ Use the tools of the `fipe` MCP server.
    2. Select the months to show. Do not get more than 12 months unless the user asks. For a long period, use one month for each year or each quarter.
    3. For each month, call `get_vehicle_by_fipe_code` with the `reference` code of that month. These calls are independent: send them in parallel.
    4. If a month has no price for that vehicle, the vehicle was not in the table in that month. Skip that month and tell the user.
+   5. Without a subscription, only the 3 latest months are available. If a month returns a subscription error (status 402), do not retry it. Show the months that you have, and tell the user that older months need a FIPE API subscription.
 
 ## Calculation
 

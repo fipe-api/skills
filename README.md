@@ -10,6 +10,8 @@ Agent skills to find Brazilian vehicle prices in the FIPE table. The skills use 
 | `fipe-plate-lookup` | Find the vehicle and price from a license plate. Needs a subscription token. |
 | `fipe-price-history` | Show the price over time and calculate depreciation. |
 | `fipe-compare` | Compare vehicles, versions or model years. |
+| `fipe-go-sdk` | Help a developer add FIPE prices to a Go application with the Go SDK. |
+| `fipe-csharp-sdk` | Help a developer add FIPE prices to a .NET application with the C# SDK. |
 
 ## Install in Claude Code
 
@@ -50,6 +52,10 @@ skills/
   fipe-plate-lookup/SKILL.md
   fipe-price-history/SKILL.md
   fipe-compare/SKILL.md
+  fipe-go-sdk/SKILL.md
+  fipe-go-sdk/references/recipes.md
+  fipe-csharp-sdk/SKILL.md
+  fipe-csharp-sdk/references/recipes.md
 ```
 
 ## Evals
