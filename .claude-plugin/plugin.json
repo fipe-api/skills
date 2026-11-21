@@ -3,5 +3,6 @@
   "description": "Skills to find Brazilian vehicle prices in the FIPE table with the FIPE API MCP server.",
   "version": "0.1.0",
   "homepage": "https://fipe.api.br",
+  "license": "MIT",
   "keywords": ["fipe", "vehicles", "brazil", "prices", "mcp"]
 }

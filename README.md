@@ -49,3 +49,7 @@ skills/
   fipe-price-history/SKILL.md
   fipe-compare/SKILL.md
 ```
+
+## License
+
+MIT. See [LICENSE](LICENSE).
