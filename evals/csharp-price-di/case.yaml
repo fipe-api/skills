@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: csharp-price-di
+context:
+  scaffold_script: warm-nuget-cache.sh

@@ -86,6 +86,30 @@ Run each case one time, without the comparison:
 claude plugin eval . --runs 1 --ablation none
 ```
 
+### SDK cases
+
+These cases ask Claude to write code with an SDK in an empty directory. Each case has the tag `sdk`.
+
+| Case | Skill | Check |
+| --- | --- | --- |
+| `go-price-by-fipe-code` | `fipe-go-sdk` | Uses `VehicleByFipeCode`, keeps money in cents, sets the token option, tests with a fake server, and `go test` passes. |
+| `go-history-subscription` | `fipe-go-sdk` | Uses `HistoryByFipeCode`, handles status 402, tests the 402 case, and `go test` passes. |
+| `csharp-price-di` | `fipe-csharp-sdk` | Uses `GetVehicleByFipeCodeAsync`, keeps money in `decimal`, registers the client with `IHttpClientFactory`, tests with a stub handler, and `dotnet build` has no errors. |
+| `csharp-history-subscription` | `fipe-csharp-sdk` | Uses `GetHistoryByFipeCodeAsync`, handles status 402, tests the 402 case, and `dotnet build` has no errors. |
+
+The SDK cases need Bash and file writes. A scaffold script fills the Go module cache and the NuGet cache before each run, because the Bash sandbox can block network access:
+
+```sh
+claude plugin eval . --tag sdk --scaffold \
+  --allow-tools Bash Write Edit \
+  "WebFetch(domain:proxy.golang.org)" "WebFetch(domain:sum.golang.org)" \
+  "WebFetch(domain:api.nuget.org)" "WebFetch(domain:globalcdn.nuget.org)"
+```
+
+The macOS sandbox does not let `dotnet test` start its test host. Thus the C# cases check that the code builds and that the tests exist, but they do not run the tests.
+
+To run only the MCP cases, use `--tag lookup --tag plate --tag history --tag compare`.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
