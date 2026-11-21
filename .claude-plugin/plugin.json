@@ -1,0 +1,7 @@
+{
+  "name": "fipe",
+  "description": "Skills to find Brazilian vehicle prices in the FIPE table with the FIPE API MCP server.",
+  "version": "0.1.0",
+  "homepage": "https://fipe.api.br",
+  "keywords": ["fipe", "vehicles", "brazil", "prices", "mcp"]
+}

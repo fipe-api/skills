@@ -1,0 +1,13 @@
+{
+  "name": "fipe-api",
+  "owner": {
+    "name": "FIPE API"
+  },
+  "plugins": [
+    {
+      "name": "fipe",
+      "source": "./",
+      "description": "Skills to find Brazilian vehicle prices in the FIPE table with the FIPE API MCP server."
+    }
+  ]
+}
