@@ -1,0 +1,12 @@
+{
+  "input": {
+    "vehicle_type": "cars",
+    "fipe_code": "004278-1",
+    "year_code": "2006-1",
+    "reference": 336
+  },
+  "output": "{\"brand\":\"GM - Chevrolet\",\"codeFipe\":\"004278-1\",\"fuel\":\"Gasolina\",\"fuelAcronym\":\"G\",\"model\":\"Corsa Sed Clas.Spirit 1.6MPFI VHC 8V Aut\",\"modelYear\":2006,\"price\":\"R$ 16.918,00\",\"referenceMonth\":\"agosto de 2026\",\"vehicleType\":1}",
+  "verdict": "ok",
+  "recordedAt": "2026-11-21T09:14:34.276Z",
+  "model": null
+}

@@ -52,6 +52,34 @@ skills/
   fipe-compare/SKILL.md
 ```
 
+## Evals
+
+The `evals/` directory has test cases for the skills. The cases use mocks of the MCP server. The mocks contain real FIPE data, so the tests do not need a login or a network connection to the FIPE API.
+
+| Case | Skill | Check |
+| --- | --- | --- |
+| `lookup-by-fipe-code` | `fipe-price-lookup` | Price from a FIPE code. |
+| `lookup-by-name` | `fipe-price-lookup` | Price from brand, model and year. |
+| `ambiguous-model` | `fipe-price-lookup` | Asks for the version. Does not select one. |
+| `zero-km` | `fipe-price-lookup` | Shows "Zero KM", not `32000`. |
+| `plate-invalid` | `fipe-plate-lookup` | Does not send a plate that is not valid. |
+| `plate-no-subscription` | `fipe-plate-lookup` | Normalizes the plate. Offers a lookup by brand, model and year. |
+| `plate-no-fipe-price` | `fipe-plate-lookup` | Does not invent a price. |
+| `history-free-fallback` | `fipe-price-history` | Gets the prices month by month without a subscription. |
+| `compare-years` | `fipe-compare` | Compares two model years. |
+
+Run all cases with a comparison to Claude without the plugin:
+
+```sh
+claude plugin eval .
+```
+
+Run each case one time, without the comparison:
+
+```sh
+claude plugin eval . --runs 1 --ablation none
+```
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

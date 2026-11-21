@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "code": "67",
+      "name": "BMW"
+    },
+    {
+      "code": "74",
+      "name": "DUCATI"
+    },
+    {
+      "code": "77",
+      "name": "HARLEY-DAVIDSON"
+    },
+    {
+      "code": "80",
+      "name": "HONDA"
+    },
+    {
+      "code": "85",
+      "name": "KAWASAKI"
+    },
+    {
+      "code": "87",
+      "name": "KTM"
+    },
+    {
+      "code": "99",
+      "name": "SUZUKI"
+    },
+    {
+      "code": "100",
+      "name": "TRIUMPH"
+    },
+    {
+      "code": "101",
+      "name": "YAMAHA"
+    }
+  ]
+}

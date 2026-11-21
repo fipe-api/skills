@@ -1,0 +1,235 @@
+{
+  "tools": [
+    {
+      "name": "list_references",
+      "description": "List the FIPE reference months and their codes. The first item is the latest month.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "list_brands",
+      "description": "List the vehicle brands for a vehicle type.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "vehicle_type": {
+            "type": "string",
+            "description": "vehicle type: cars, motorcycles or trucks"
+          },
+          "reference": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "reference code from list_references; omit it for the latest month"
+          }
+        },
+        "required": [
+          "vehicle_type"
+        ]
+      }
+    },
+    {
+      "name": "list_models",
+      "description": "List the models of a brand.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "vehicle_type": {
+            "type": "string",
+            "description": "vehicle type: cars, motorcycles or trucks"
+          },
+          "brand_code": {
+            "type": "string",
+            "description": "brand code from list_brands, for example 59"
+          },
+          "reference": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "reference code from list_references; omit it for the latest month"
+          }
+        },
+        "required": [
+          "vehicle_type",
+          "brand_code"
+        ]
+      }
+    },
+    {
+      "name": "list_model_years",
+      "description": "List the model years and fuel types of a model.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "vehicle_type": {
+            "type": "string",
+            "description": "vehicle type: cars, motorcycles or trucks"
+          },
+          "brand_code": {
+            "type": "string",
+            "description": "brand code from list_brands, for example 59"
+          },
+          "model_code": {
+            "type": "string",
+            "description": "model code from list_models, for example 5940"
+          },
+          "reference": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "reference code from list_references; omit it for the latest month"
+          }
+        },
+        "required": [
+          "vehicle_type",
+          "brand_code",
+          "model_code"
+        ]
+      }
+    },
+    {
+      "name": "get_vehicle",
+      "description": "Get the FIPE price and the details of a vehicle from its brand, model and year codes.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "vehicle_type": {
+            "type": "string",
+            "description": "vehicle type: cars, motorcycles or trucks"
+          },
+          "brand_code": {
+            "type": "string",
+            "description": "brand code from list_brands, for example 59"
+          },
+          "model_code": {
+            "type": "string",
+            "description": "model code from list_models, for example 5940"
+          },
+          "year_code": {
+            "type": "string",
+            "description": "year code from list_model_years, for example 2014-3"
+          },
+          "reference": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "reference code from list_references; omit it for the latest month"
+          }
+        },
+        "required": [
+          "vehicle_type",
+          "brand_code",
+          "model_code",
+          "year_code"
+        ]
+      }
+    },
+    {
+      "name": "list_years_by_fipe_code",
+      "description": "List the model years of a vehicle from its FIPE code.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "vehicle_type": {
+            "type": "string",
+            "description": "vehicle type: cars, motorcycles or trucks"
+          },
+          "fipe_code": {
+            "type": "string",
+            "description": "FIPE code, for example 004278-1"
+          },
+          "reference": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "reference code from list_references; omit it for the latest month"
+          }
+        },
+        "required": [
+          "vehicle_type",
+          "fipe_code"
+        ]
+      }
+    },
+    {
+      "name": "get_vehicle_by_fipe_code",
+      "description": "Get the FIPE price and the details of a vehicle from its FIPE code and year code.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "vehicle_type": {
+            "type": "string",
+            "description": "vehicle type: cars, motorcycles or trucks"
+          },
+          "fipe_code": {
+            "type": "string",
+            "description": "FIPE code, for example 004278-1"
+          },
+          "year_code": {
+            "type": "string",
+            "description": "year code from list_model_years, for example 2014-3"
+          },
+          "reference": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "reference code from list_references; omit it for the latest month"
+          }
+        },
+        "required": [
+          "vehicle_type",
+          "fipe_code",
+          "year_code"
+        ]
+      }
+    },
+    {
+      "name": "get_price_history",
+      "description": "Get the FIPE price history of a vehicle from its FIPE code and year code. Requires a paid subscription token.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "vehicle_type": {
+            "type": "string",
+            "description": "vehicle type: cars, motorcycles or trucks"
+          },
+          "fipe_code": {
+            "type": "string",
+            "description": "FIPE code, for example 004278-1"
+          },
+          "year_code": {
+            "type": "string",
+            "description": "year code from list_model_years, for example 2014-3"
+          }
+        },
+        "required": [
+          "vehicle_type",
+          "fipe_code",
+          "year_code"
+        ]
+      }
+    },
+    {
+      "name": "get_vehicle_by_plate",
+      "description": "Get the vehicle data and the FIPE prices for a Brazilian license plate. Requires a subscription token.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "plate": {
+            "type": "string",
+            "description": "Brazilian license plate in the old format (ABC1234) or the Mercosul format (ABC1D23)"
+          }
+        },
+        "required": [
+          "plate"
+        ]
+      }
+    }
+  ]
+}
