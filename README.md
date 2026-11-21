@@ -1,6 +1,6 @@
 # FIPE API skills
 
-Agent skills to find Brazilian vehicle prices in the FIPE table. The skills use the FIPE API MCP server at `https://fipe.api.br/mcp`.
+Agent skills to find Brazilian vehicle prices in the FIPE table. The skills use the FIPE API MCP server at `https://mcp.fipe.api.br/mcp`.
 
 ## Skills
 
@@ -25,14 +25,16 @@ The plugin adds the `fipe` MCP server from `.mcp.json`.
 ## Install the MCP server only
 
 ```sh
-claude mcp add --transport http fipe https://fipe.api.br/mcp
+claude mcp add --transport http fipe https://mcp.fipe.api.br/mcp
 ```
 
 ## Other agents
 
-Each skill is a folder in `skills/` with a `SKILL.md` file. Copy the folders to the skills directory of your agent. Connect the agent to `https://fipe.api.br/mcp`.
+Each skill is a folder in `skills/` with a `SKILL.md` file. Copy the folders to the skills directory of your agent. Connect the agent to `https://mcp.fipe.api.br/mcp`.
 
-## Tools that need a token
+## Authentication
+
+The MCP server uses OAuth. After you install the plugin, run `/mcp`, select `fipe` and sign in.
 
 `get_vehicle_by_plate` and `get_price_history` need a FIPE API subscription. The other tools are free.
 

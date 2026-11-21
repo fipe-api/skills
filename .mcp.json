@@ -2,7 +2,7 @@
   "mcpServers": {
     "fipe": {
       "type": "http",
-      "url": "https://fipe.api.br/mcp"
+      "url": "https://mcp.fipe.api.br/mcp"
     }
   }
 }
